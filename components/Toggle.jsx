@@ -1,8 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Switch } from "@headlessui/react";
 
 const Toggle = () => {
 	const [enabled, setEnabled] = useState(false);
+
+	useEffect(() => {
+		if (enabled) {
+			document.documentElement.classList.add("dark");
+			// localStorage.theme = "dark";
+		} else {
+			document.documentElement.classList.remove("dark");
+			// localStorage.theme = "light";
+		}
+	}, [enabled]);
+
 	return (
 		<Switch
 			checked={enabled}
