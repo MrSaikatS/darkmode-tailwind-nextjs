@@ -1,7 +1,12 @@
-const Layout = () => {
+import Nav from "./Nav";
+
+const Layout = ({ children }) => {
 	return (
 		<>
-			<div className=''></div>
+			<div className=''>
+				<Nav />
+				{children}
+			</div>
 		</>
 	);
 };
